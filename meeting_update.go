@@ -1,5 +1,7 @@
 package zoom
 
+import "fmt"
+
 type UpdateMeetingParams struct {
 	MeetingID    int    `url:"-"`
 	OccurrenceID string `url:"occurrence_id,omitempty"`
@@ -28,7 +30,7 @@ func UpdateMeeting(params UpdateMeetingParams, opts UpdateMeetingOptions) error 
 func (c *Client) UpdateMeeting(params UpdateMeetingParams, opts UpdateMeetingOptions) error {
 	return c.requestV2(requestV2Opts{
 		Method:         Patch,
-		Path:           UpdateMeetingPath,
+		Path:           fmt.Sprintf(UpdateMeetingPath, params.MeetingID),
 		DataParameters: &opts,
 		URLParameters:  &params,
 		HeadResponse:   true,
