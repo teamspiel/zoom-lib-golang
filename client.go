@@ -162,6 +162,7 @@ func (c *Client) requestV2WithBody(opts requestV2Opts, resp *http.Response) erro
 
 	// check for Zoom errors in the response
 	if err := checkError(body); err != nil {
+		log.Printf("Error: %s", err)
 		return err
 	}
 

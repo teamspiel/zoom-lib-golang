@@ -62,7 +62,6 @@ func (c *Client) MeetingRegistrantCreate(params MeetingRegistrantCreateParams, i
 		Path:           fmt.Sprintf(MeetingRegistrantCreatePath, params.MeetingID),
 		DataParameters: &input,
 		URLParameters:  &params,
-		HeadResponse:   true,
 		Ret:            &response,
 	})
 }
