@@ -40,9 +40,10 @@ func (c *Client) MeetingRegistrantCreateBatch(params MeetingRegistrantCreateBatc
 	var response MeetingRegistrantCreateBatchResponse
 
 	return response, c.requestV2(requestV2Opts{
-		Method:        Post,
-		Path:          fmt.Sprintf(MeetingRegistrantCreateBatchPath, params.MeetingID),
-		URLParameters: &input,
-		Ret:           &response,
+		Method:         Post,
+		Path:           fmt.Sprintf(MeetingRegistrantCreateBatchPath, params.MeetingID),
+		URLParameters:  &params,
+		DataParameters: &input,
+		Ret:            &response,
 	})
 }
