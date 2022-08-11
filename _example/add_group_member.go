@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/zoom-lib-golang/zoom-lib-golang"
+	"github.com/teamspiel/zoom-lib-golang"
 )
 
 func main() {
