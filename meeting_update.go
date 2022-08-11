@@ -8,16 +8,16 @@ type UpdateMeetingParams struct {
 }
 
 type UpdateMeetingOptions struct {
-	Agenda         string          `json:"agenda,omitempty"`
-	Duration       int             `json:"duration,omitempty"`
-	Password       string          `json:"password,omitempty"`
-	Recurrence     Recurrence      `json:"recurrence"`
-	Settings       MeetingSettings `json:"settings,omitempty"`
-	StartTime      *Time           `json:"start_time,omitempty"`
-	Timezone       string          `json:"timezone,omitempty"`
-	Topic          string          `json:"topic,omitempty"`
-	TrackingFields []TrackingField `json:"tracking_fields,omitempty"`
-	Type           MeetingType     `json:"type,omitempty"`
+	Agenda         string           `json:"agenda,omitempty"`
+	Duration       int              `json:"duration,omitempty"`
+	Password       string           `json:"password,omitempty"`
+	Recurrence     *Recurrence      `json:"recurrence,omitempty"`
+	Settings       *MeetingSettings `json:"settings,omitempty"`
+	StartTime      *Time            `json:"start_time,omitempty"`
+	Timezone       string           `json:"timezone,omitempty"`
+	Topic          string           `json:"topic,omitempty"`
+	TrackingFields []TrackingField  `json:"tracking_fields,omitempty"`
+	Type           MeetingType      `json:"type,omitempty"`
 }
 
 // UpdateMeetingPath - v2 update a meeting
@@ -28,6 +28,7 @@ func UpdateMeeting(params UpdateMeetingParams, opts UpdateMeetingOptions) error 
 }
 
 func (c *Client) UpdateMeeting(params UpdateMeetingParams, opts UpdateMeetingOptions) error {
+	fmt.Println("bakka.")
 	return c.requestV2(requestV2Opts{
 		Method:         Patch,
 		Path:           fmt.Sprintf(UpdateMeetingPath, params.MeetingID),
