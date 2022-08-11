@@ -21,13 +21,12 @@ type UpdateMeetingOptions struct {
 // UpdateMeetingPath - v2 update a meeting
 const UpdateMeetingPath = "/users/%s/meetings"
 
-func UpdateMeeting(params UpdateMeetingParams, opts UpdateMeetingOptions) (Meeting, error) {
+func UpdateMeeting(params UpdateMeetingParams, opts UpdateMeetingOptions) error {
 	return defaultClient.UpdateMeeting(params, opts)
 }
 
-func (c *Client) UpdateMeeting(params UpdateMeetingParams, opts UpdateMeetingOptions) (Meeting, error) {
-	var ret = Meeting{}
-	return ret, c.requestV2(requestV2Opts{
+func (c *Client) UpdateMeeting(params UpdateMeetingParams, opts UpdateMeetingOptions) error {
+	return c.requestV2(requestV2Opts{
 		Method:         Patch,
 		Path:           UpdateMeetingPath,
 		DataParameters: &opts,
