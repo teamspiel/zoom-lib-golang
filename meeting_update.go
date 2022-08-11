@@ -19,7 +19,7 @@ type UpdateMeetingOptions struct {
 }
 
 // UpdateMeetingPath - v2 update a meeting
-const UpdateMeetingPath = "/users/%s/meetings"
+const UpdateMeetingPath = "/meetings/%d"
 
 func UpdateMeeting(params UpdateMeetingParams, opts UpdateMeetingOptions) error {
 	return defaultClient.UpdateMeeting(params, opts)
