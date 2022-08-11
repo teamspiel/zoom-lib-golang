@@ -1,4 +1,4 @@
-module github.com/teamspiel/zoom-lib-golang
+module github.com/teamspiel/zoom-lib-golang/v3
 
 go 1.16
 
